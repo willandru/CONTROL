@@ -1,8 +1,6 @@
-clear all 
-close all 
-
+clear, clc, close all
 %% Parametros del Simulador
-Ts=100e-3
+Ts=100e-3;
 Tsim=60; 
 
 %% Torque Generado por el Motor 
@@ -10,6 +8,7 @@ Tsim=60;
 Tm=200; %% Torque maximo Generado por el Motor [Nm]
 Beta=0.4;
 Omgm=418.87; %%[rad/s] => 4000 RPM
+
 omg=0:1:Omgm*(1+sqrt(1/Beta));
 T=Tm*(1-Beta*(omg/Omgm-1).^2); %% Calcula El Torque del Motor 
 plot(omg,T)
@@ -17,9 +16,9 @@ grid on
 xlabel('Velocidad Angular del Motor $\omega$ [rad/s]','Interpreter','latex')
 ylabel('Torque del Motor $\tau$ [Nm]','Interpreter','latex')
 
-r=30e-2 %% Radio de una llanta 
+r=30e-2; %% Radio de una llanta 
 
-alfn=[40,25,16,12,10] %% Relación alfa
+alfn=[40,25,16,12,10]; %% Relación alfa
 n=alfn*r;
 
 
@@ -36,7 +35,7 @@ xlabel('Velocidad del vehiculo $v$ [m/s]','Interpreter','latex')
 ylabel('Torque del Motor $\tau$ [Nm]','Interpreter','latex')
 legend('Primera','Segunda','Tercera','Cuarta','Quinta')
 for i=1:length(alfn)
-Fm(i,:)=Tv(i,:)*alfn(i)
+Fm(i,:)=Tv(i,:)*alfn(i);
 end
 
 figure 
@@ -48,11 +47,11 @@ ylabel('Fuerza del Motor $F_{m}$ [N]','Interpreter','latex')
 legend('Primera','Segunda','Tercera','Cuarta','Quinta')
 
 %% Parametros Fuerza Aerodinamica
-rho=1.3 %Densidad del Aire [km/m^3]
+rho=1.3; %Densidad del Aire [km/m^3]
 Cd=0.32;
-A=2.4 %% Area Equivalente [m^2]
+A=2.4 ;%% Area Equivalente [m^2]
 Ka=(1/2)*rho*Cd*A;
-Fd=Ka*v.^2
+Fd=Ka*v.^2;
 figure 
 plot(v,Fd)
 grid on 
@@ -61,13 +60,13 @@ ylabel('Fuerza Aerodinmaica $F_{a}$ [N]','Interpreter','latex')
 
 %% Parametros del Vehiculo 
 m=1200; % Peso del Vehiculo [Kg] 
-V0=20; %% Velocidad Inicial 
+V0=15.8333; %% Velocidad Inicial 
 %% Parametros Fuerza de Frinción 
 Cr=0.001;
-g=9.8 %[m/s^2]
+g=9.8; %[m/s^2]
 %% Parametros de la Fuerza de Gravedad
-Ti=7 %% Tiempo Inicial del Cambio en el Peralte
-Td=4 %% Tiempo de Duración del Cambio de Peralte
+Ti=7 ;%% Tiempo Inicial del Cambio en el Peralte
+Td=4 ;%% Tiempo de Duración del Cambio de Peralte
 Tf=Ti+Td;
 Angle=6;
 Thetap=Angle*pi/180;
@@ -75,16 +74,37 @@ Kperalte=Thetap/Td;
 
 %% Parametros del Controlador
 Cambio=5; %% Cambio en donde esta el Vehiculo
-F=Ka*V0^2+m*g*Cr
+F=Ka*V0^2+m*g*Cr;
 
 
 %%
 
-Ki=0.1
+Ki=0.5
 Kp=0.5
-Ue=0.1187
-I0 = Ue/Ki %% Usted debe Encontrar este valor para garantizar que la velocidad 
+
+
+
+
+
+
+alfa_my=10;
+vel=15.8333;
+
+Tmax=Tm*(1-Beta*(alfa_my*vel/Omgm-1)^2);
+Fm=alfa_my*Tmax;
+
+Fr=m*g*Cr*sign(vel);
+Ka=(1/2)*rho*Cd*A;
+Fa=Ka*vel^2;
+Fg=m*g*sin(Thetap);
+ Fd=Fr+Fa+Fg;
+
+Ue = Fd/Fm;
+I0 = Ue/Ki/10 ;%% Usted debe Encontrar este valor para garantizar que la velocidad 
 % inicial del vehiculo sea constante antes de la aparición de la perturbación 
+%I0=0.8 caso ki=0.1
+%I0=0.15
+
 
 %% Lanzar el Simulador
 
