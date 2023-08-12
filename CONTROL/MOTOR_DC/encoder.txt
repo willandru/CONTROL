@@ -1,0 +1,9 @@
+FUNCIONAMIENTO DEL ENCODER: Un disco con perdforaciones y un laser, un cencoder incremental. No hay un cero absoluto. Solo permite medir el incremetno en el ángulo. NO permite medir el ángulo absoluto de giro. No podria tampoco saber la direccion de giro. La solucion es tener dos discos con perforacioens, o un disco con un codigo en las perforaciones. Encoder de cuadratura pues cuadruplica la cantidad de eventos que ocurren . Con 1 solo disco de 360 ranuras podemos medir 1 grado. con dos de estos discos desfasados , llegamos a medir hasta 1/4 de grado
+
+Implementar un diagrama de flujo muy simple que permita medir la velocidad delmotor con base a los pulsos del encoder sabiendo cuantas revoluciones hay en 360grados, y despues un diagrama de flujo que permita detectar la direccion de giro.
+
+
+PARA MEIDR LA VELOCIDAD ANGULAR DEL MOTOR: Tener un tiempo fijo, una base de timepoconstante y contarel numerode pulsos que ocrurrenen esa cantidad de tiempo. Ej. Voy a contar la cantidad de pulsos que ocurren en 10 us
+
+
+comprarlo en sigma electronic . 

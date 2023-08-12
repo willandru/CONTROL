@@ -91,19 +91,19 @@ alfa_my=10;
 vel=15.8333;
 
 Tmax=Tm*(1-Beta*(alfa_my*vel/Omgm-1)^2);
-Fm=alfa_my*Tmax;
+Fm=Tmax*alfa_my^2;
 
 Fr=m*g*Cr*sign(vel);
 Ka=(1/2)*rho*Cd*A;
 Fa=Ka*vel^2;
 Fg=m*g*sin(Thetap);
- Fd=Fr+Fa+Fg;
+
+Fd=Fr+Fa+Fg;
 
 Ue = Fd/Fm;
-I0 = Ue/Ki/10 ;%% Usted debe Encontrar este valor para garantizar que la velocidad 
+I0 = Ue/Ki; %% Usted debe Encontrar este valor para garantizar que la velocidad 
 % inicial del vehiculo sea constante antes de la aparición de la perturbación 
-%I0=0.8 caso ki=0.1
-%I0=0.15
+
 
 
 %% Lanzar el Simulador
