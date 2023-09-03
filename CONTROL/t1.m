@@ -53,6 +53,15 @@ sol = solve([eq1, eq2], [a, b]);
 a_sol = sol.a
 b_sol = sol.b
 
+%% SEGUNDO
+
+syms w0 a b
+
+eq1 = atan( (1/(1+ w0^2*a/b))/(1/(w0-w0^3/b)) ) == pi;
+eq2 = sqrt(((1/(1+ w0^2*a/b)))^2+((1/(w0-w0^3/b)))^2) == 1;
+
+
+
 %% SEXTO
 
 numerator = 5000;
