@@ -4410,8 +4410,6 @@ static void CCP3_DefaultCallBack(uint16_t capturedValue)
 
         TMR1H = 0X00;
         TMR1L = 0X00;
-
-
     }
     else
     {}

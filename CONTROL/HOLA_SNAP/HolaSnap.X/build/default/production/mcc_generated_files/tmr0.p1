@@ -34,9 +34,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "57 mcc_generated_files/tmr0.c
 [; ;mcc_generated_files/tmr0.c: 57: extern _Bool flag_blink;
 [v _flag_blink `a ~T0 @X0 0 e ]
-"58
-[; ;mcc_generated_files/tmr0.c: 58: extern _Bool flag_startTX;
-[v _flag_startTX `a ~T0 @X0 0 e ]
 "54 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f1827.h
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f1827.h: 54: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -671,14 +668,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "141
 [; ;mcc_generated_files/tmr0.c: 141:         interrupt_count=0;
 [e = _interrupt_count -> 0 `i ]
-"144
-[; ;mcc_generated_files/tmr0.c: 144:     }
+"146
+[; ;mcc_generated_files/tmr0.c: 146:     }
 }
 [e :U 362 ]
-"146
-[; ;mcc_generated_files/tmr0.c: 146:     flag_startTX=1;
-[e = _flag_startTX -> -> 1 `i `a ]
-"149
-[; ;mcc_generated_files/tmr0.c: 149: }
+"151
+[; ;mcc_generated_files/tmr0.c: 151: }
 [e :UE 361 ]
 }

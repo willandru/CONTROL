@@ -93,9 +93,7 @@ static void CCP3_DefaultCallBack(uint16_t capturedValue)
         
         //a = (2*3.141592)/(T*(32*10^(-6)));
         TMR1H = 0X00;
-        TMR1L = 0X00;
-        
-        
+        TMR1L = 0X00; 
     }
     else
     {}

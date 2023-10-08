@@ -50,9 +50,12 @@ uint16_t T=0;
 
 bool flag_updateT; 
 
+bool flag_capturar;
+
 long vel;
 
-
+int transiente[50];
+int i=0;
 
 
 
@@ -81,55 +84,40 @@ void main(void)
 //LED1_SetHigh();
 // LED2_SetLow();
     OUT2_SetLow();
-    OUT7_SetHigh();
+    OUT7_SetLow();
     while (1)
     {
-        // Add your application code
         
-       
-            
-           // if(flag_startTX){
-              //  T++;
-               // printf("%u\n",T);
-               // flag_startTX=0;
             
          if (flag_blink){
-            flag_blink=0;
+             i=0;
+             flag_blink=0;
+            
            // LED1_Toggle();
            // LED2_Toggle();
             //OUT2_Toggle();
-            OUT7_Toggle();
+           
+           // OUT7_Toggle();
+            
         }
-            
-        
-        
-        if (flag_updateT)
-        {
-            flag_updateT=0;
-           // printf("%u\n",T);
-            
-            
+         
+   
+            if (flag_capturar && i<50) {
+                flag_capturar=0;
                
-        }
-        
-      /* if(flag_startTX)
-        {
-            //a = devolver();
-          vel=(long)((long)2*314159200)/(T*(long)32);
-          printf("%d,",T);
-          printf("%ld\r\n",vel);    
-          // printf("%ld \n",vel);
-            
-            
-            flag_startTX=0;
-        }*/
-    
+                vel = (long) ((long) 2 * 314159200) / (T * (long) 32);
+                transiente[i]=vel;
+                
+                i++;
+
+            }
+            else if(i==50){
+                for(int j=0; j++; j<50){
+                     printf("%d ", transiente[j]);
+                }
+            }
+
     
     }
             
         }
-
-   
-/**
- End of File
-*/

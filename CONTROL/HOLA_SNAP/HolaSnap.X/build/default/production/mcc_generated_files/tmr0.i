@@ -4445,9 +4445,11 @@ void TMR0_DefaultInterruptHandler(void){
         interrupt_count=0;
 
 
+
+
     }
 
-    flag_startTX=1;
+
 
 
 }

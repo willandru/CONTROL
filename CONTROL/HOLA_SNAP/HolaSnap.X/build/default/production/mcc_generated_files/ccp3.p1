@@ -616,90 +616,90 @@ Version 4.0 HI-TECH Software Intermediate Code
 "96
 [; ;mcc_generated_files/ccp3.c: 96:         TMR1L = 0X00;
 [e = _TMR1L -> -> 0 `i `uc ]
-"99
-[; ;mcc_generated_files/ccp3.c: 99:     }
+"97
+[; ;mcc_generated_files/ccp3.c: 97:     }
 }
 [e $U 360  ]
-"100
-[; ;mcc_generated_files/ccp3.c: 100:     else
+"98
+[; ;mcc_generated_files/ccp3.c: 98:     else
 [e :U 359 ]
-"101
-[; ;mcc_generated_files/ccp3.c: 101:     {}
+"99
+[; ;mcc_generated_files/ccp3.c: 99:     {}
 {
 }
 [e :U 360 ]
-"102
-[; ;mcc_generated_files/ccp3.c: 102: }
+"100
+[; ;mcc_generated_files/ccp3.c: 100: }
 [e :UE 358 ]
 }
-"104
-[; ;mcc_generated_files/ccp3.c: 104: void CCP3_Initialize(void)
+"102
+[; ;mcc_generated_files/ccp3.c: 102: void CCP3_Initialize(void)
 [v _CCP3_Initialize `(v ~T0 @X0 1 ef ]
-"105
-[; ;mcc_generated_files/ccp3.c: 105: {
+"103
+[; ;mcc_generated_files/ccp3.c: 103: {
 {
 [e :U _CCP3_Initialize ]
 [f ]
-"109
-[; ;mcc_generated_files/ccp3.c: 109:  CCP3CON = 0x04;
+"107
+[; ;mcc_generated_files/ccp3.c: 107:  CCP3CON = 0x04;
 [e = _CCP3CON -> -> 4 `i `uc ]
-"112
-[; ;mcc_generated_files/ccp3.c: 112:  CCPR3L = 0x00;
+"110
+[; ;mcc_generated_files/ccp3.c: 110:  CCPR3L = 0x00;
 [e = _CCPR3L -> -> 0 `i `uc ]
-"115
-[; ;mcc_generated_files/ccp3.c: 115:  CCPR3H = 0x00;
+"113
+[; ;mcc_generated_files/ccp3.c: 113:  CCPR3H = 0x00;
 [e = _CCPR3H -> -> 0 `i `uc ]
-"118
-[; ;mcc_generated_files/ccp3.c: 118:     CCP3_SetCallBack(CCP3_DefaultCallBack);
+"116
+[; ;mcc_generated_files/ccp3.c: 116:     CCP3_SetCallBack(CCP3_DefaultCallBack);
 [e ( _CCP3_SetCallBack (1 &U _CCP3_DefaultCallBack ]
-"122
-[; ;mcc_generated_files/ccp3.c: 122:     PIR3bits.CCP3IF = 0;
+"120
+[; ;mcc_generated_files/ccp3.c: 120:     PIR3bits.CCP3IF = 0;
 [e = . . _PIR3bits 0 4 -> -> 0 `i `uc ]
-"125
-[; ;mcc_generated_files/ccp3.c: 125:     PIE3bits.CCP3IE = 1;
+"123
+[; ;mcc_generated_files/ccp3.c: 123:     PIE3bits.CCP3IE = 1;
 [e = . . _PIE3bits 0 4 -> -> 1 `i `uc ]
-"126
-[; ;mcc_generated_files/ccp3.c: 126: }
+"124
+[; ;mcc_generated_files/ccp3.c: 124: }
 [e :UE 361 ]
 }
-"128
-[; ;mcc_generated_files/ccp3.c: 128: void CCP3_CaptureISR(void)
+"126
+[; ;mcc_generated_files/ccp3.c: 126: void CCP3_CaptureISR(void)
 [v _CCP3_CaptureISR `(v ~T0 @X0 1 ef ]
-"129
-[; ;mcc_generated_files/ccp3.c: 129: {
+"127
+[; ;mcc_generated_files/ccp3.c: 127: {
 {
 [e :U _CCP3_CaptureISR ]
 [f ]
-"130
-[; ;mcc_generated_files/ccp3.c: 130:     CCP3_PERIOD_REG_T module;
+"128
+[; ;mcc_generated_files/ccp3.c: 128:     CCP3_PERIOD_REG_T module;
 [v _module `S354 ~T0 @X0 1 a ]
-"133
-[; ;mcc_generated_files/ccp3.c: 133:     PIR3bits.CCP3IF = 0;
+"131
+[; ;mcc_generated_files/ccp3.c: 131:     PIR3bits.CCP3IF = 0;
 [e = . . _PIR3bits 0 4 -> -> 0 `i `uc ]
-"136
-[; ;mcc_generated_files/ccp3.c: 136:     module.ccpr3l = CCPR3L;
+"134
+[; ;mcc_generated_files/ccp3.c: 134:     module.ccpr3l = CCPR3L;
 [e = . . _module 0 0 _CCPR3L ]
-"137
-[; ;mcc_generated_files/ccp3.c: 137:     module.ccpr3h = CCPR3H;
+"135
+[; ;mcc_generated_files/ccp3.c: 135:     module.ccpr3h = CCPR3H;
 [e = . . _module 0 1 _CCPR3H ]
-"140
-[; ;mcc_generated_files/ccp3.c: 140:     CCP3_CallBack(module.ccpr3_16Bit);
+"138
+[; ;mcc_generated_files/ccp3.c: 138:     CCP3_CallBack(module.ccpr3_16Bit);
 [e ( *U _CCP3_CallBack (1 . . _module 1 0 ]
-"141
-[; ;mcc_generated_files/ccp3.c: 141: }
+"139
+[; ;mcc_generated_files/ccp3.c: 139: }
 [e :UE 362 ]
 }
-"143
-[; ;mcc_generated_files/ccp3.c: 143: void CCP3_SetCallBack(void (*customCallBack)(uint16_t)){
+"141
+[; ;mcc_generated_files/ccp3.c: 141: void CCP3_SetCallBack(void (*customCallBack)(uint16_t)){
 [v _CCP3_SetCallBack `(v ~T0 @X0 1 ef1`*F2518 ]
 {
 [e :U _CCP3_SetCallBack ]
 [v _customCallBack `*F2521 ~T0 @X0 1 r1 ]
 [f ]
-"144
-[; ;mcc_generated_files/ccp3.c: 144:     CCP3_CallBack = customCallBack;
+"142
+[; ;mcc_generated_files/ccp3.c: 142:     CCP3_CallBack = customCallBack;
 [e = _CCP3_CallBack _customCallBack ]
-"145
-[; ;mcc_generated_files/ccp3.c: 145: }
+"143
+[; ;mcc_generated_files/ccp3.c: 143: }
 [e :UE 363 ]
 }
